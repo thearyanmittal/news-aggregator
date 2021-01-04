@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+requests = "*"
+bs4 = "*"
+lxml = "*"
+newspaper3k = "*"
+django-mathfilters = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

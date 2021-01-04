@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.logo a {
+    font-family: 'Goldman', cursive;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link a {
+    font-family: 'Audiowide', cursive;
+    color: white;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.5s;
+}
+
+header{
+    display: flex;
+    width: 100%;
+    margin: auto;
+    height: 10vh;
+    align-items: center;
+    background-color: #24252A;
+}
+
+.logo-container, .nav-links {
+    display: flex;
+}
+
+.logo-container {
+    flex: 3;
+    margin: 75px;
+}
+
+.logo a {
+    font-weight: 800;
+}
+
+nav {
+    flex: 1;
+}
+
+.nav-links {
+    justify-content: space-around;
+}
+
+.nav-link a:hover {
+    border-bottom: 1px solid white;
+    color: lightgray;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.jumbotron {
+    font-family: 'Goldman', cursive;
+}
+
+.card-title a h5 {
+    font-family: 'Philosopher', sans-serif;
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s;
+}
+
+.card-title a h5:hover {
+    color: rgb(133, 133, 133);
+}
+
+.card-title a:hover {
+    text-decoration: none;
+}

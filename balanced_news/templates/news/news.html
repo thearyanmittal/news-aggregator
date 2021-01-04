@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load mathfilters %}
+
+
+{% block title %}
+    Headlines
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <center>
+        <h1>Today's News</h1>
+    </center>
+</div>
+
+
+<div class="card-columns">
+
+    {% for headline in headline_list %}
+    <div class="card">
+        {% if headline.img != '' %}
+            <a href="{{headline.url}}" target="_blank"><img class="card-img-top" src="{{headline.img}}" alt="article image"></a>
+        {% endif %}
+
+        <div class="card-body">
+            
+            <div class="card-title"> 
+                <a href="{{headline.url}}" target="_blank"><h5>{{headline.title}}</h5></a>
+            </div>
+            {% if headline.time_ago_str %}
+                <p class="card-text"><small class="text-muted">published {{ headline.time_ago_str }}</small></p>
+
+            {% elif headline.mins_ago < 1440 and headline.mins_ago > 60 %}
+                <p class="card-text"><small class="text-muted">published {{ headline.mins_ago | intdiv:60 | floatformat:"-2" }} hours ago</small></p>
+
+            {% elif headline.mins_ago < 1440 and headline.mins_ago == 1 %}
+                <p class="card-text"><small class="text-muted">published 1 min ago</small></p>
+
+            {% elif headline.mins_ago < 1440 and headline.mins_ago < 60 %}
+                <p class="card-text"><small class="text-muted">published {{ headline.mins_ago }} mins ago</small></p>
+
+            {% else %}
+                <p class="card-text"><small class="text-muted">published before today</small></p>
+            {% endif %}
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

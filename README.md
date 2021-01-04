@@ -1,0 +1,2 @@
+# News Aggregator
+This is a news aggregator web application built with the Django framework. It scrapes news articles (using BeautifulSoup) from websites on both sides of the political spectrum and presents them to the user in one webpage.
