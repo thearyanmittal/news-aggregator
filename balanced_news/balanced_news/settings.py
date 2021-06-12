@@ -21,8 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('balanced_news\\newsagg_sk.txt', 'r') as sk:
-    SECRET_KEY = sk.read().strip()
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -144,5 +143,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'balancednewsservice@gmail.com'
-with open('balanced_news\\newsagg_email_pwd.txt', 'r') as pwd:
-    EMAIL_HOST_PASSWORD = pwd.read().strip()
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
