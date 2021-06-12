@@ -21,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+with open('balanced_news\\newsagg_sk.txt', 'r') as sk:
+    SECRET_KEY = sk.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,13 +38,15 @@ STATICFILES_DIRS = [
 
 INSTALLED_APPS = [
     'news.apps.NewsConfig',
+    'register.apps.RegisterConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mathfilters'
+    'mathfilters',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
@@ -129,3 +132,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+LOGIN_REDIRECT_URL = "/news"
+LOGOUT_REDIRECT_URL = "/register/logout"
+
+#Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'balancednewsservice@gmail.com'
+with open('balanced_news\\newsagg_email_pwd.txt', 'r') as pwd:
+    EMAIL_HOST_PASSWORD = pwd.read().strip()

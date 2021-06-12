@@ -14,24 +14,53 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 
     <title>Balanced News {% block title %}{% endblock %}</title>
-    <link rel="shortcut icon" type="image/png" href="{% static 'logo.png' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'media/logo.png' %}"/>
 </head>
 <body>
 
     <header>
         <div class="logo-container">
-            <h4 class="logo"><a href="/">Balanced News</a></h4>
+            <h4 class="logo1"><a href="/">Balanced</a></h4> <h4 class="logo2"><a href="/">News</a></h4>
         </div>
 
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li class="nav-link"><a href="/login"> <i>Sign Up/In</i> </a> </li>
-                <li class="nav-link"><a href="/about"> <i>About</i> </a> </li>
-                <li class="nav-link"><a href="/news"> <i>News</i> </a> </li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col col-lg"></div>
+                <div class="col-sm-auto">
+                    <nav class="navbar">
+                        <ul class="nav-links">
+                            <li class="nav-link"><a href="/news"> <i>News</i> </a> </li>
+                            <li class="nav-link"><a href="/about"> <i>About</i> </a> </li>
+                            <li class="nav-link"><a href="/sources"> <i>Sources</i> </a></li>
+            
+                            {% if user.is_authenticated %}
+                                
+                                <div class="user-dropdown">
+
+                                        <li class="nav-link"> <i>{{user.username}}</i> </li>       
+                                            <div class="dropdown-content">
+                                                <ul>
+                                                    <li> <i><a href="/logout">Log Out</a> </i> </li>
+                                                    <li> <i><a href="#">Reset Password</a></i> </li>
+                                                    <li> <i><a href="/register/deleteaccount">Delete Account</a></i> </li>
+                                                </ul>
+                                            </div>
+                                </div>
+            
+                            {% else %}
+                                <li class="nav-link"><a href="/login"> <i>Log In/Sign Up</i> </a> </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </header>
 
     {% block content %}

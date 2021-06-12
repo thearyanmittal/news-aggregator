@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
 from django.shortcuts import render
+import os
+from . import settings
 
 def home(request):
     return render(request, 'home.html')
@@ -24,13 +25,21 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-def login(request):
-    return render(request, 'login.html')
+def sources(request):
+    IMG_BASE_DIR = os.path.abspath(os.path.join(settings.STATICFILES_DIRS[0], 'media/newslist'))
+    IMG_SITES = ['https://www.foxnews.com/', 'https://www.nationalreview.com/', 'https://www.politico.com/', 'https://slate.com/']
+    img_names = [os.path.join('media/newslist', name) for name in os.listdir(IMG_BASE_DIR)]
+
+
+    context = {'img_srcs': list(zip(IMG_SITES, img_names))}
+    return render(request, 'sources.html', context=context)
 
 urlpatterns = [
     path('news/', include('news.urls')),
+    path('register/', include('register.urls')),
+    path('about/', about),
+    path('sources/', sources),
     path('admin/', admin.site.urls),
     path('', home),
-    path('about/', about),
-    path('login/', login)
+    path('', include("django.contrib.auth.urls")),
 ]
