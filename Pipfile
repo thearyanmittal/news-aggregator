@@ -11,6 +11,7 @@ lxml = "*"
 django-mathfilters = "*"
 django-crispy-forms = "*"
 gunicorn = "*"
+selenium = "*"
 
 [dev-packages]
 
