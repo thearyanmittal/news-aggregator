@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 import os
 
@@ -146,3 +147,6 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'balancednewsservice@gmail.com'
 EMAIL_HOST_PASSWORD = 'balancednews1'
+
+#Activate Django-Heroku
+django_heroku.settings(locals())
