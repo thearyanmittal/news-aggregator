@@ -12,6 +12,7 @@ django-mathfilters = "*"
 django-crispy-forms = "*"
 gunicorn = "*"
 selenium = "*"
+whitenoise = "*"
 
 [dev-packages]
 

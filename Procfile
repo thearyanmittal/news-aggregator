@@ -1,1 +1,1 @@
-web: gunicorn balanced_news.wsgi:application --log-file -
+web: gunicorn balanced_news.wsgi
