@@ -1,4 +1,6 @@
-*.txt
+log.txt
+newsagg_email_pwd.txt
+newsagg_sk.txt
 
 db.sqlite3
 
