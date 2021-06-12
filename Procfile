@@ -1,0 +1,1 @@
+web: gunicorn balanced_news.wsgi
