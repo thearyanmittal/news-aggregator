@@ -27,7 +27,7 @@ SECRET_KEY = 'x67v2)^6$xtxfud9j2j#ik1cm=#=%^)p$=0ft0a5&(g+mwzr&y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['balancednews.herokuapp.com', '127.0.0.1']
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
