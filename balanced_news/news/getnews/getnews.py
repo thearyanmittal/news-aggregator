@@ -7,7 +7,7 @@ from .news_sites.getdailywire import getdailywire
 
 
 def get_news():
-    STORIES = 50
+    STORIES = 50 # should be long enough news site
     SITES = 6
     per_site = STORIES // SITES
 
