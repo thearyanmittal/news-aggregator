@@ -28,11 +28,11 @@ def about(request):
 
 def sources(request):
     IMG_BASE_DIR = os.path.abspath(os.path.join(settings.STATICFILES_DIRS[0], 'media/newslist'))
-    IMG_SITES = ['https://www.dailywire.com', 'https://www.cnn.com/', 'https://www.slate.com/', 'https://www.politico.com/', 
-    'https://www.foxnews.com/', 'https://nationalreview.com/']
 
     img_names = [os.path.join('media/newslist', name) for name in os.listdir(IMG_BASE_DIR)]
-    img_srcs = np.array_split(np.array(list(zip(IMG_SITES, img_names))), 2)
+    img_sites = [f"https://www.{name.split('-')[0]}.com/" for name in os.listdir(IMG_BASE_DIR)]
+
+    img_srcs = np.array_split(np.array(list(zip(img_sites, img_names))), 2)
 
 
     context = {'img_srcs': img_srcs}
