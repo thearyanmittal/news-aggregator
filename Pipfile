@@ -15,6 +15,7 @@ selenium = "*"
 whitenoise = "*"
 django-heroku = "*"
 psycopg2 = "*"
+numpy = "*"
 
 [dev-packages]
 

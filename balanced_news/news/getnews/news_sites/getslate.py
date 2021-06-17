@@ -36,3 +36,6 @@ def getslate(per_site):
             headline.save()
             i += 1
 
+        else:
+            break
+

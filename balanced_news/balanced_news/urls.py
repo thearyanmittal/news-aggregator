@@ -18,6 +18,7 @@ from django.urls import path, include
 from django.shortcuts import render
 import os
 from . import settings
+import numpy as np
 
 def home(request):
     return render(request, 'home.html')
@@ -27,11 +28,14 @@ def about(request):
 
 def sources(request):
     IMG_BASE_DIR = os.path.abspath(os.path.join(settings.STATICFILES_DIRS[0], 'media/newslist'))
-    IMG_SITES = ['https://www.foxnews.com/', 'https://www.nationalreview.com/', 'https://www.politico.com/', 'https://slate.com/']
+    IMG_SITES = ['https://www.cnn.com', 'https://www.dailywire.com/', 'https://www.foxnews.com/', 'https://www.nationalreview.com/', 
+    'https://www.politico.com/', 'https://slate.com/']
+
     img_names = [os.path.join('media/newslist', name) for name in os.listdir(IMG_BASE_DIR)]
+    img_srcs = np.array_split(np.array(list(zip(IMG_SITES, img_names))), 2)
 
 
-    context = {'img_srcs': list(zip(IMG_SITES, img_names))}
+    context = {'img_srcs': img_srcs}
     return render(request, 'sources.html', context=context)
 
 urlpatterns = [

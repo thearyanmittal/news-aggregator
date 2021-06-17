@@ -31,3 +31,6 @@ def getfox(per_site):
                 headline.save()
 
                 fox_count += 1
+            
+            else:
+                break

@@ -200,4 +200,6 @@ ul {
 
 .card-deck {
     max-width: 100%;
+    margin-bottom: 2% !important;
+    margin: auto;
 }

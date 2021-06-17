@@ -20,16 +20,20 @@
 
 </div>
 
-<div class="card-deck">
+    {% for src_group in img_srcs %}
 
-    {% for src in img_srcs %}
+        <div class="card-deck">
 
-        <div class="card">
-            <a href="{{src.0}}" target="_blank"><img class="card-img" src="{% static src.1 %}" alt="news source"></a>
+            {% for src in src_group %}
+
+                <div class="card">
+                    <a href="{{src.0}}" target="_blank"><img class="card-img" src="{% static src.1 %}" alt="news source"></a>
+                </div>
+
+            {% endfor %}
+
         </div>
 
     {% endfor %}
-
-</div>
 
 {% endblock %}

@@ -39,3 +39,6 @@ def getnatreview(per_site):
 
             headline.save()
             i += 1
+
+        else:
+            break
