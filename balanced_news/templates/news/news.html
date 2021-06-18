@@ -71,6 +71,9 @@
                     {% if headline.time_ago_str %}
                         <p class="card-text"><small class="text-muted">published {{ headline.time_ago_str }}</small></p>
 
+                    {% elif headline.mins_ago == 60 %}
+                        <p class="card-text"><small class="text-muted">published 1 hour ago</small></p>
+
                     {% elif headline.mins_ago < 1440 and headline.mins_ago > 60 %}
                         <p class="card-text"><small class="text-muted">published {{ headline.mins_ago | intdiv:60 | floatformat:"-2" }} hours ago</small></p>
 
