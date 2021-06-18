@@ -30,7 +30,8 @@ def sources(request):
     IMG_BASE_DIR = os.path.abspath(os.path.join(settings.STATICFILES_DIRS[0], 'media/newslist'))
 
     img_names = [os.path.join('media/newslist', name) for name in os.listdir(IMG_BASE_DIR)]
-    img_sites = [f"https://www.{name.split('-')[0]}.com/" for name in os.listdir(IMG_BASE_DIR)]
+    img_sites = [f"https://www.{name.split('-')[0]}.com/" if not name.startswith('npr')
+    else f"https://www.{name.split('-')[0]}.org/" for name in os.listdir(IMG_BASE_DIR)]
 
     img_srcs = np.array_split(np.array(list(zip(img_sites, img_names))), 2)
 

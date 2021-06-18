@@ -1,7 +1,7 @@
 from ...models import Headline
 from bs4 import BeautifulSoup
 import requests
-from datetime import datetime, time, timedelta
+from datetime import datetime, timedelta
 
 def getnatreview(per_site):
     url = 'https://www.nationalreview.com/latest/'
@@ -25,8 +25,6 @@ def getnatreview(per_site):
 
             if ':' in (timestr := art.find('time').text):
                 time_ago = datetime.strptime(timestr, '%I:%M %p').time()
-                # time_ago = time.isoformat(time_ago.time())
-                # time_ago = time.fromisoformat(time_ago)
 
                 if time_ago < (datetime.now() - timedelta(days=1)).time():
                     delta = datetime.now() - timedelta(hours=time_ago.hour, minutes=time_ago.minute, seconds=time_ago.second)
