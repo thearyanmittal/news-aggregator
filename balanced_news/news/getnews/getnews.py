@@ -16,6 +16,6 @@ def get_news():
     getpolitico(per_site)
     getnatreview(per_site)
     getslate(per_site)
-    getcnndailywire(per_site)
     getnypost(per_site)
     getnpr(per_site)
+    getcnndailywire(per_site)

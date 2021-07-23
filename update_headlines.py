@@ -3,7 +3,7 @@ from balanced_news.news.getnews import getnews
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('interval', minutes=120)
+@sched.scheduled_job('cron', hour='6, 13')
 def update_headlines():
     getnews()
 
