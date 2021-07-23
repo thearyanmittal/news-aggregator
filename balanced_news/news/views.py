@@ -5,8 +5,8 @@ import random
 
 
 def shownews(request):
-    Headline.objects.all().delete()
-    get_news()
+    # Headline.objects.all().delete()
+    # get_news()
 
     headlines = Headline.objects.order_by('?')
     preview = []

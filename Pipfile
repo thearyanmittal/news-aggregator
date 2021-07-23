@@ -16,6 +16,7 @@ whitenoise = "*"
 django-heroku = "*"
 psycopg2 = "*"
 numpy = "*"
+apscheduler = "*"
 
 [dev-packages]
 
