@@ -5,7 +5,7 @@ from .news_sites.getslate import getslate
 from .news_sites.getcnndailywire import getcnndailywire
 from .news_sites.getnypost import getnypost
 from .news_sites.getnpr import getnpr
-from models import Headline
+from ..models import Headline
 
 
 def get_news():
