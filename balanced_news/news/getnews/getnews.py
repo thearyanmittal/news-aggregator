@@ -9,7 +9,7 @@ from ..models import Headline
 
 
 def get_news():
-    STORIES = 50
+    STORIES = 75
     SITES = 8
     per_site = STORIES // SITES
 
