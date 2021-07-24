@@ -2,11 +2,14 @@ from django.shortcuts import render
 from .models import Headline
 from .getnews.getnews import get_news
 import random
+from rq import Queue
+from worker import conn
 
 
 def shownews(request):
-    Headline.objects.all().delete()
-    get_news()
+    
+    q = Queue(connection=conn)
+    q.enqueue(get_news)
 
     headlines = Headline.objects.order_by('?')
     preview = []

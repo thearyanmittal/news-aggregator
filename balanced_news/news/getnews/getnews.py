@@ -5,6 +5,7 @@ from .news_sites.getslate import getslate
 from .news_sites.getcnndailywire import getcnndailywire
 from .news_sites.getnypost import getnypost
 from .news_sites.getnpr import getnpr
+from models import Headline
 
 
 def get_news():
@@ -12,6 +13,7 @@ def get_news():
     SITES = 8
     per_site = STORIES // SITES
 
+    Headline.objects.all().delete()
     getfox(per_site)
     getpolitico(per_site)
     getnatreview(per_site)
