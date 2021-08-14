@@ -20,4 +20,4 @@ def get_news():
     getslate(per_site)
     getnypost(per_site)
     getnpr(per_site)
-    getcnndailywire(per_site)
+    # getcnndailywire(per_site)
