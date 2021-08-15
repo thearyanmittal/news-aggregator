@@ -6,6 +6,8 @@ import random
 
 def shownews(request):
 
+    get_news()
+
     headlines = Headline.objects.order_by('?')
     preview = []
     right, left = 3, 3
