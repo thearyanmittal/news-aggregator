@@ -9,8 +9,8 @@ from ..models import Headline
 
 
 def get_news():
-    STORIES = 75
-    SITES = 8
+    STORIES = 60
+    SITES = 6
     per_site = STORIES // SITES
 
     Headline.objects.all().delete()

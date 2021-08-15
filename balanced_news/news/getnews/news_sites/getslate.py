@@ -23,7 +23,7 @@ def getslate(per_site):
                 continue
             headline.img = art.find('img')['data-src']
 
-            pub_date = datetime.strptime(art.find('span', class_="topic-story__date").text, '%B %d, %Y')
+            pub_date = datetime.strptime(art.find('span', class_="topic-story__date").text, '%b %d, %Y')
             if pub_date < datetime(year=datetime.now().year, month=datetime.now().month, day=datetime.now().day):
                 headline.mins_ago = 1441
             else:
