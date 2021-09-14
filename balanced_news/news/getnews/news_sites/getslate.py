@@ -2,6 +2,7 @@ from ...models import Headline
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, time, timedelta
+from dateparser import parse
 
 def getslate(per_site):
     url = 'https://slate.com/news-and-politics'
@@ -23,7 +24,7 @@ def getslate(per_site):
                 continue
             headline.img = art.find('img')['data-src']
 
-            pub_date = datetime.strptime(art.find('span', class_="topic-story__date").text, '%b %d, %Y')
+            pub_date = parse(art.find('span', class_="topic-story__date").text)
             if pub_date < datetime(year=datetime.now().year, month=datetime.now().month, day=datetime.now().day):
                 headline.mins_ago = 1441
             else:

@@ -17,6 +17,7 @@ django-heroku = "*"
 psycopg2 = "*"
 numpy = "*"
 rq = "*"
+dateparser = "*"
 
 [dev-packages]
 
