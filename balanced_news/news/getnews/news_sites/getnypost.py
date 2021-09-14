@@ -2,6 +2,7 @@ from ...models import Headline
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
+from dateparser import parse
 
 def getnypost(per_site):
     html = requests.get('https://nypost.com/news/').text
@@ -19,7 +20,7 @@ def getnypost(per_site):
             headline.url = art.find('a')['href']
 
             timestr = art.find('span', class_='meta meta--byline').text.strip()
-            pubdt = datetime.strptime(timestr, "%B %d, %Y | %I:%M%p")
+            pubdt = parse(timestr)
             time_ago = datetime.now() - pubdt
             headline.mins_ago = int(time_ago.total_seconds() // 60)
 

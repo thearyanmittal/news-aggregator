@@ -24,12 +24,12 @@ def getslate(per_site):
                 continue
             headline.img = art.find('img')['data-src']
 
-            pub_date = parse(art.find('span', class_="topic-story__date").text)
+            pub_date = parse(art.find('span', class_="topic-story__date").text, languages=['en'])
             if pub_date < datetime(year=datetime.now().year, month=datetime.now().month, day=datetime.now().day):
                 headline.mins_ago = 1441
             else:
                 pub_time = art.find('div', class_='topic-story__byline').text.strip()[-8:].strip()
-                pub_time = datetime.strptime(pub_time, '%I:%M %p').time()
+                pub_time = parse(pub_time).time()
                 
                 delta = datetime.now() - timedelta(hours=pub_time.hour, minutes=pub_time.minute, seconds=pub_time.second)
                 headline.mins_ago = delta.hour*60 + delta.minute

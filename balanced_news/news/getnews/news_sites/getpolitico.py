@@ -2,6 +2,7 @@ from ...models import Headline
 import requests
 from bs4 import BeautifulSoup
 import datetime
+from dateparser import parse
 
 def getpolitico(per_site):
     politico_html = requests.get('http://www.politico.com/politics')
@@ -22,7 +23,7 @@ def getpolitico(per_site):
 
             now = datetime.datetime.now()
             pub_datetime_str = article.find('time')['datetime']
-            pub_datetime = datetime.datetime.strptime(pub_datetime_str, '%Y-%m-%d %H:%M:%S')
+            pub_datetime = parse(pub_datetime_str)
             time_ago = (now - pub_datetime).seconds // 60
 
             headline.img = pic

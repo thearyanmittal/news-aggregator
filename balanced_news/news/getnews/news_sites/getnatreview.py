@@ -2,6 +2,7 @@ from ...models import Headline
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime, timedelta
+from dateparser import parse
 
 def getnatreview(per_site):
     url = 'https://www.nationalreview.com/latest/'
@@ -24,7 +25,7 @@ def getnatreview(per_site):
             headline.url = art.find('a')['href']
 
             if ':' in (timestr := art.find('time').text):
-                time_ago = datetime.strptime(timestr, '%I:%M %p').time()
+                time_ago = parse(timestr).time()
 
                 if time_ago < (datetime.now() - timedelta(days=1)).time():
                     delta = datetime.now() - timedelta(hours=time_ago.hour, minutes=time_ago.minute, seconds=time_ago.second)
