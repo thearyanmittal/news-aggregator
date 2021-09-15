@@ -38,7 +38,7 @@
                         <p class="card-text"><small class="text-muted">published 1 hour ago</small></p>
 
                     {% elif headline.mins_ago < 1440 and headline.mins_ago > 60 %}
-                        <p class="card-text"><small class="text-muted">published {{ headline.mins_ago | intdiv:60 | floatformat:"-2" }} hours ago</small></p>
+                        <p class="card-text"><small class="text-muted">published {{ headline.mins_ago | div:60 | floatformat:"0" }} hours ago</small></p>
 
                     {% elif headline.mins_ago < 1440 and headline.mins_ago == 1 %}
                         <p class="card-text"><small class="text-muted">published 1 min ago</small></p>
