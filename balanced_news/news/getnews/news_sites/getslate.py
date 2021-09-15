@@ -32,7 +32,7 @@ def getslate(per_site):
                 pub_time = parse(pub_time).time()
                 
                 delta = datetime.now() - timedelta(hours=pub_time.hour, minutes=pub_time.minute, seconds=pub_time.second)
-                headline.mins_ago = delta.hour*60 + delta.minute
+                headline.mins_ago = delta.hour*60 + delta.minute + 60 #for some reason, always short 1 hour
 
             headline.save()
             i += 1

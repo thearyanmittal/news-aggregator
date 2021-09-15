@@ -30,7 +30,7 @@ def getpolitico(per_site):
             headline.url = url
             headline.title = title
             headline.leaning = leaning
-            headline.mins_ago = time_ago
+            headline.mins_ago = time_ago + 60 #for some reason, always short 1hr
             headline.save()
             
             politico_count += 1

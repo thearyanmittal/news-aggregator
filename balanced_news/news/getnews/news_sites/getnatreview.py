@@ -29,7 +29,7 @@ def getnatreview(per_site):
 
                 if time_ago < (datetime.now() - timedelta(days=1)).time():
                     delta = datetime.now() - timedelta(hours=time_ago.hour, minutes=time_ago.minute, seconds=time_ago.second)
-                    headline.mins_ago = delta.hour*60 + delta.minute
+                    headline.mins_ago = delta.hour*60 + delta.minute + 60 # short one hour
                 else:
                     headline.mins_ago = 1441
 
