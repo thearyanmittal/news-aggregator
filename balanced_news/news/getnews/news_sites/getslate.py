@@ -28,11 +28,14 @@ def getslate(per_site):
             if pub_date < datetime(year=datetime.now().year, month=datetime.now().month, day=datetime.now().day):
                 headline.mins_ago = 1441
             else:
-                pub_time = art.find('div', class_='topic-story__byline').text.strip()[-8:].strip()
-                pub_time = parse(pub_time).time()
-                
-                delta = datetime.now() - timedelta(hours=pub_time.hour, minutes=pub_time.minute, seconds=pub_time.second)
-                headline.mins_ago = delta.hour*60 + delta.minute + 60 #for some reason, always short 1 hour
+                try:
+                    pub_time = art.find('div', class_='topic-story__byline').text.strip()[-8:].strip()
+                    pub_time = parse(pub_time).time()
+                    
+                    delta = datetime.now() - timedelta(hours=pub_time.hour, minutes=pub_time.minute, seconds=pub_time.second)
+                    headline.mins_ago = delta.hour*60 + delta.minute + 60 #for some reason, always short 1 hour
+                except:
+                    headline.time_ago_str = 'recently'
 
             headline.save()
             i += 1
