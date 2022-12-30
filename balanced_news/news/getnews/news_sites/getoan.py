@@ -21,11 +21,14 @@ def getoan(per_site):
             headline.url = art.find('a')['href']
 
             time_soup = BeautifulSoup(requests.get(headline.url).text, 'lxml')
-            pubdt = parse(time_soup.find('h5').text.split('UPDATED')[1])
+            try:
+                pubdt = parse(time_soup.find('h5').text.split('UPDATED')[1]) # wrap in try block to work
 
-            if pubdt.date() < datetime.now().date():
-                headline.time_ago_str = 'before today'
-            else:
+                if pubdt.date() < datetime.now().date():
+                    headline.time_ago_str = 'before today'
+                else:
+                    headline.time_ago_str = 'recently'
+            except:
                 headline.time_ago_str = 'recently'
 
             headline.save()
