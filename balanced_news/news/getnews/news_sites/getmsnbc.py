@@ -23,10 +23,7 @@ def getmsnbc(per_site):
             headline.img = art.find('img')['src']
             
             time_soup = BeautifulSoup(requests.get(headline.url).text, 'lxml')
-            try:
-                pubdt = parse(time_soup.find('time').text.split(',', 2)[0])
-            except:
-                pubdt = datetime.now()
+            pubdt = parse(time_soup.find('time').text.split(',', 2)[0])
 
             if pubdt.date() < datetime.now().date():
                 headline.time_ago_str = 'before today'

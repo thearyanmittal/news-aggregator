@@ -20,10 +20,7 @@ def getnpr(per_site):
             headline.url = art.find('a')['href']
 
             time_soup = BeautifulSoup(requests.get(headline.url).text, 'lxml')
-            try:
-                pubdt = parse(time_soup.find('span', class_='time').text[:-3])
-            except:
-                pubdt = datetime.now()
+            pubdt = parse(time_soup.find('span', class_='time').text[:-3])
             
             if pubdt.date() < datetime.now().date():
                 headline.time_ago_str = 'before today'
