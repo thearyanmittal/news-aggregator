@@ -1,7 +1,7 @@
 # News Aggregator
 This is a news aggregator web application built with the Django framework. It scrapes news articles (using BeautifulSoup and Selenium) from websites on both sides of the political spectrum and presents them to the user in one webpage.
 
-The site was live at [www.balancednews.us](http://www.balancednews.us), until Heroku shut down its free tier.
+The site was live at balancednews.us, until Heroku shut down its free tier.
 
 ## Usage
 Clone the repository and install all required packages in a virtual environment using `pipenv install`. Then, `cd` into the `balanced_news` directory and run `python3 manage.py runserver`. The web app should then be live at [127.0.0.1:8000](127.0.0.1:8000).
