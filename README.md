@@ -3,6 +3,9 @@ This is a news aggregator web application built with the Django framework. It sc
 
 The site was live at [www.balancednews.us](http://www.balancednews.us), until Heroku shut down its free tier.
 
+## Usage
+Clone the repository and install all required packages in a virtual environment using `pipenv install`. Then, `cd` into the `balanced_news` directory and run `python3 manage.py runserver`. The web app should then be live at [127.0.0.1:8000](127.0.0.1:8000).
+
 ## Motivation
 As today's political climate becomes more and more polarized, it becomes more difficult for this generation of citizens to find unbiased sources of news. Moreover, popular tech-based news services (such as Google, Facebook, YouTube, and others) tend to personalize content recommendations, causing even the most open-minded to only hear one side of every story and get stuck in intellectual echo-chambers.
 
